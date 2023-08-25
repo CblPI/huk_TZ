@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% if user.is_authenticated%}
+    <form class="roulet_form" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h1>Рулетка</h1>
+        <div id="result_block" style="margin-bottom: 40px"></div>
+        <span class="result_button" style="cursor: pointer;
+        padding: 10px 10px 10px 10px; border: 1px solid;
+         width: 100px">ТЫК</span>
+    </form>
+    {% else %}
+    <h1>Вы не вошли.</h1>
+{% endif %}
+<script type="text/javascript" src="{% static 'JS/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'JS/roulette.js' %}"></script>
+</body>
+</html>
